@@ -1,0 +1,12 @@
+<% unless @product_properties.empty? %>  
+  <h4 class="product-section-title"><%= Spree.t('properties')%></h4>
+<ul class="list-group">
+      <% @product_properties.each do |product_property| %>
+        <% css_class = cycle('even', 'odd', :name => "properties") %>
+         <li class="list-group-item"><strong><%= product_property.property.presentation %></strong>
+            <%= product_property.value %>
+          </li>
+      <% end %>
+      <% reset_cycle('properties') %>
+</ul>
+<% end %>

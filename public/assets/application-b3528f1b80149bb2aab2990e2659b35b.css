@@ -1,0 +1,164 @@
+/* line 1, /data/synseye/app/assets/stylesheets/custom.css.scss */
+body {
+  padding-top: 125px;
+  background: url(http://subtlepatterns.com/patterns/wavegrid.png);
+}
+
+/* line 5, /data/synseye/app/assets/stylesheets/custom.css.scss */
+.globale-nav {
+  padding: 30px 0;
+  background: #FFF;
+  box-shadow: 0px 1px 5px #888888;
+}
+/* line 9, /data/synseye/app/assets/stylesheets/custom.css.scss */
+.globale-nav li {
+  min-width: 80px;
+  font-size: 1.2em;
+  text-align: center;
+}
+/* line 13, /data/synseye/app/assets/stylesheets/custom.css.scss */
+.globale-nav li a:hover {
+  color: #FFF;
+  background: black;
+}
+/* line 18, /data/synseye/app/assets/stylesheets/custom.css.scss */
+.globale-nav a {
+  color: black;
+}
+
+/* line 23, /data/synseye/app/assets/stylesheets/custom.css.scss */
+.big-banner {
+  display: none;
+  position: relative;
+  overflow: auto;
+}
+/* line 26, /data/synseye/app/assets/stylesheets/custom.css.scss */
+.big-banner li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 32, /data/synseye/app/assets/stylesheets/custom.css.scss */
+.big-banner ul {
+  height: px !important;
+  margin: 0;
+  padding: 0;
+}
+/* line 36, /data/synseye/app/assets/stylesheets/custom.css.scss */
+.big-banner ul li {
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+/* line 40, /data/synseye/app/assets/stylesheets/custom.css.scss */
+.big-banner ul li img {
+  height: auto;
+  width: 100%;
+}
+/* line 44, /data/synseye/app/assets/stylesheets/custom.css.scss */
+.big-banner ul li h3 {
+  position: relative;
+  top: -120px;
+  color: white;
+  right: 30px;
+  float: right;
+  background: black;
+  padding: 5px 15px;
+  font-size: 2em;
+}
+
+/* line 58, /data/synseye/app/assets/stylesheets/custom.css.scss */
+.product-listed {
+  text-align: center;
+  height: 240px;
+}
+/* line 61, /data/synseye/app/assets/stylesheets/custom.css.scss */
+.product-listed .product-image {
+  max-height: 200px;
+}
+/* line 63, /data/synseye/app/assets/stylesheets/custom.css.scss */
+.product-listed .product-image img {
+  width: auto;
+  max-height: 200px;
+}
+/* line 69, /data/synseye/app/assets/stylesheets/custom.css.scss */
+.product-listed .price {
+  height: 0px;
+  overflow: visible;
+  background: blue;
+}
+/* line 73, /data/synseye/app/assets/stylesheets/custom.css.scss */
+.product-listed .price .label-black {
+  background: black;
+  float: right;
+  position: absolute;
+  bottom: 70px;
+  right: 10px;
+}
+
+/* line 83, /data/synseye/app/assets/stylesheets/custom.css.scss */
+.pagination li > a {
+  color: black;
+}
+/* line 86, /data/synseye/app/assets/stylesheets/custom.css.scss */
+.pagination .active > a {
+  background: black;
+  border: none;
+}
+
+/* line 92, /data/synseye/app/assets/stylesheets/custom.css.scss */
+.progress-steps {
+  height: 30px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 98, /data/synseye/app/assets/stylesheets/custom.css.scss */
+.progress-steps li {
+  float: left;
+  width: 20%;
+  text-align: center;
+  border: 1px solid gray;
+  padding: 5px;
+  font-size: 1.1em;
+}
+/* line 106, /data/synseye/app/assets/stylesheets/custom.css.scss */
+.progress-steps li.current, .progress-steps li.current-first {
+  background: gray;
+  color: white;
+}
+
+/* line 112, /data/synseye/app/assets/stylesheets/custom.css.scss */
+.total-desc {
+  text-align: right;
+}
+
+/* line 115, /data/synseye/app/assets/stylesheets/custom.css.scss */
+.row-content-wrapper {
+  background: rgba(255, 255, 255, 0.84);
+  padding: 25px;
+  border-radius: 5px;
+  margin-top: 25px;
+  min-height: 700px;
+}
+
+/* line 122, /data/synseye/app/assets/stylesheets/custom.css.scss */
+#products {
+  margin-top: 30px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+

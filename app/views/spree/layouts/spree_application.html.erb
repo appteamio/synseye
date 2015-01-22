@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<%= render :partial => 'spree/shared/head' %>
+</head>
+<body>
+	<%= render :partial => 'spree/shared/header' %>
+	<div class="container">
+	<%= breadcrumbs(@taxon, separator="cds", breadcrumb_class="breadcrumb") %>
+	<%= yield %>
+	</div>
+
+</body>
+</html>

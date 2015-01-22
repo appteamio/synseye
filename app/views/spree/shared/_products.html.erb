@@ -1,0 +1,55 @@
+
+<%
+  paginated_products = @searcher.retrieve_products if params.key?(:keywords)
+  paginated_products ||= products
+%>
+
+<% content_for :head do %>
+  <% if paginated_products.respond_to?(:num_pages) %>
+    <%= rel_next_prev_link_tags paginated_products %>
+  <% end %>
+<% end %>
+
+<div>
+  <% if products.empty? %>
+    <div>
+      <%= Spree.t(:no_products_found) %>
+    </div>
+  <% elsif params.key?(:keywords) %>
+    <div >
+      <h6 class="search-results-title"><%= Spree.t(:search_results, :keywords => h(params[:keywords])) %></h6>
+    </div>
+  <% end %>
+</div>
+
+<% if products.any? %>
+<div id="products" class="row " >
+  <% products.each do |product| %>
+    <% url = product_path(product, :taxon_id => @taxon.try(:id)) %>
+    <div id="product_<%= product.id %>" class="col-md-3 product-listed" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product">
+      <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : [I18n.locale, current_currency, product]) do %>
+        <div class="product-image">
+          <%= link_to large_image(product, :itemprop => "image", :class => 'img-thumbnail'), url, :itemprop => 'url' %>
+        </div>
+        <h4 class="price">
+          <span itemprop="offers" class="label label-black" itemscope itemtype="http://schema.org/Offer">
+            <span  itemprop="price"><%= display_price(product) %>
+          </span>
+        </span>
+        </h4>
+        <h4>
+        <%= link_to truncate(product.name, :length => 30), url, :class => 'text-muted', :itemprop => "name", :title => product.name %>
+        </h4>
+      <% end %>
+    </div>
+  <% end %>
+  <% reset_cycle("classes") %>
+</div>
+<% end %>
+
+<% if paginated_products.respond_to?(:num_pages) %>
+<div class="col-md-12 text-center">
+  <%= paginate paginated_products %>
+</div>
+<% end %>
+

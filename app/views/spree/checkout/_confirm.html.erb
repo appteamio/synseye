@@ -1,0 +1,13 @@
+
+
+    <div class="panel-heading">
+      <h1><%= Spree.t(:confirm) %>Your order</h1>
+    </div>
+   		 <div class="panel-body">
+ 	 		<%= render :partial => 'spree/shared/order_details', :locals => { :order => @order } %>
+			<div class="row" data-hook="buttons">
+			  <%= submit_tag Spree.t(:place_order), :class => 'btn btn-default col-md-4 col-md-offset-4' %>
+			  <script>Spree.disableSaveOnClick();</script>
+			</div>
+		</div>
+

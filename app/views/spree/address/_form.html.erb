@@ -1,0 +1,95 @@
+<% address_id = address_type.chars.first %>
+
+<div class="inner" data-hook=<%="#{address_type}_inner" %> >
+  <div class="form-group">
+    <%= form.label :firstname, Spree.t(:first_name), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-9">
+      <%= form.text_field :firstname, :class => 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :lastname, Spree.t(:last_name), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-9">
+      <%= form.text_field :lastname, :class => 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :address1, Spree.t(:street_address), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-9">
+      <%= form.text_field :address1, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= form.label :address2, Spree.t(:street_address_2), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-9">
+      <%= form.text_field :address2, :class => 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :city, Spree.t(:city), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-9">
+      <%= form.text_field :city, :class => 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :country_id, Spree.t(:country), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-9">
+      <%= form.collection_select :country_id, available_countries, :id, :name, {}, {:class => 'form-control'} %>
+    </div>
+  </div>
+
+
+
+  <% if Spree::Config[:address_requires_state] %>
+      <% have_states = !address.country.states.empty? %>
+    <div class="form-group">
+      <%= form.label :state, Spree.t(:state), :class=> "col-sm-3 control-label" %>
+    <div class="col-sm-9" id=<%="#{address_id}state" %> >
+      <% state_elements = [
+         form.collection_select(:state_id, address.country.states,
+                            :id, :name,
+                            {:include_blank => true},
+                            {:class => have_states ? 'form-control' : 'hidden',
+                            :disabled => !have_states}) +
+         form.text_field(:state_name,
+                            :class => !have_states ? 'col-sm-3 control-label' : 'hidden',
+                            :disabled => have_states)
+         ].join.gsub('"', "'").gsub("\n", "")
+      %>
+      <%= javascript_tag do -%>
+        $('#<%="#{address_id}state" %>').append("<%== state_elements %>");
+      <% end %>
+    </div>
+    </div>
+      <noscript>
+        <%= form.text_field :state_name, :class => 'form-control' %>
+      </noscript>
+  <% end %>
+ <div class="form-group">
+    <%= form.label :zipcode, Spree.t(:zip), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-9">
+      <%= form.text_field :zipcode, :class => 'form-control' %>
+    </div>
+  </div>
+
+ <div class="form-group">
+    <%= form.label :phone, Spree.t(:phone), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-9">
+      <%= form.phone_field :phone, :class => 'form-control' %>
+    </div>
+  </div>
+
+  <% if Spree::Config[:alternative_shipping_phone] %>
+
+ <div class="form-group">
+    <%= form.label :alternative_phone, Spree.t(:phone), :class => "col-sm-3 control-label" %>
+    <div class="col-sm-9">
+      <%= form.phone_field :alternative_phone, :class => 'form-control' %>
+    </div>
+  </div>
+  <% end %>
+</div>
