@@ -4,7 +4,7 @@ lock '3.3.5'
 set :application, 'synseye'
 set :repo_url, 'git@github.com:appteamio/synseye.git'
 
-set :deploy_to, "/var/www/#{fetch(:application}"
+set :deploy_to, "/var/www/#{fetch(:application)}"
 set :deploy_user, "vagrant"
 
 set :rbenv_type, :user # or :system, depends on your rbenv setup
